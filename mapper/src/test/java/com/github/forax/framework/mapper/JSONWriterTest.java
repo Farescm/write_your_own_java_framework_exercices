@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SuppressWarnings({"unused", "static-method"})
 public class JSONWriterTest {
-  /*
+
   @Nested
   public class Q1 {
     @Test @Tag("Q1")
@@ -126,6 +126,21 @@ public class JSONWriterTest {
     }
   }
 
+  @Test @Tag("Q3")
+  public void toJSONProperty() {
+    class Empty { }
+    var writer = new JSONWriter();
+    var person = new Person("James", "Bond");
+    var json = writer.toJSON(person);
+    var expected1 = """
+          {"first-name": "James", "last-name": "Bond"}\
+          """;
+    var expected2 = """
+          {"last-name": "Bond", "first-name": "James"}\
+          """;
+    assertTrue(json.equals(expected1) || json.equals(expected2));
+  }
+
   public static class StartDate {
     private final LocalDateTime time;
 
@@ -139,6 +154,8 @@ public class JSONWriterTest {
   }
 
 
+
+/*
   @Nested
   public class Q5 {
     @Test @Tag("Q5")
