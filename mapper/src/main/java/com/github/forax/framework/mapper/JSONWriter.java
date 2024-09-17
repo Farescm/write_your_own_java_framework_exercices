@@ -26,6 +26,7 @@ public final class JSONWriter {
                     }).toList();
         }
     };
+
     @FunctionalInterface
     private interface Generator {
         String generate(JSONWriter writer, Object bean);
