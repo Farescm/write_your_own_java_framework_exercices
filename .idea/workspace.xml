@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74bd28e4-ede9-4bbb-a92f-dae249a45c06" name="Changes" comment="Travail du jour">
-      <change afterPath="$PROJECT_DIR$/interceptor/rapport.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="74bd28e4-ede9-4bbb-a92f-dae249a45c06" name="Changes" comment="Q3 + Q4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/interceptor/src/main/java/org/github/forax/framework/interceptor/InterceptorRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/interceptor/src/main/java/org/github/forax/framework/interceptor/InterceptorRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interceptor/src/test/java/org/github/forax/framework/interceptor/InterceptorRegistryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/interceptor/src/test/java/org/github/forax/framework/interceptor/InterceptorRegistryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +206,39 @@
       <option name="project" value="LOCAL" />
       <updated>1725963772729</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Q1 + un peu Q2 Avant la liste">
+      <option name="closed" value="true" />
+      <created>1727167782643</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727167782643</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Q2 finito + reversed">
+      <option name="closed" value="true" />
+      <created>1727168458191</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727168458191</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Q2 finito + reversed">
+      <option name="closed" value="true" />
+      <created>1727168474318</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727168474318</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Q3 + Q4">
+      <option name="closed" value="true" />
+      <created>1727170344693</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1727170344693</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,9 +257,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="do not try to validate the dependency graph before calling lookup()" />
-    <MESSAGE value="comment starts at the wrong place" />
-    <MESSAGE value="rework interceptor code/questions" />
     <MESSAGE value="use throw switch in the tests" />
     <MESSAGE value="remove weird import that make the CI fails" />
     <MESSAGE value="update injector and rewrite annotation scanner" />
@@ -254,6 +279,9 @@
     <MESSAGE value="update IntelliJ files" />
     <MESSAGE value="test" />
     <MESSAGE value="Travail du jour" />
-    <option name="LAST_COMMIT_MESSAGE" value="Travail du jour" />
+    <MESSAGE value="Q1 + un peu Q2 Avant la liste" />
+    <MESSAGE value="Q2 finito + reversed" />
+    <MESSAGE value="Q3 + Q4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Q3 + Q4" />
   </component>
 </project>

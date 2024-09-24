@@ -11,7 +11,7 @@ public final class InterceptorRegistry {
 
     private final HashMap<Class<?>, List<AroundAdvice>> adviceMap = new HashMap<>();
 
-    public void addAroundAdvice(Class<? extends Annotation> annotationClass, AroundAdvice advice) {
+    /*public void addAroundAdvice(Class<? extends Annotation> annotationClass, AroundAdvice advice) {
         Objects.requireNonNull(annotationClass);
         Objects.requireNonNull(advice);
         adviceMap
@@ -27,9 +27,9 @@ public final class InterceptorRegistry {
                     return advice.stream();
                 })
                 .toList();
-    }
+    }*/
 
-    public <T> T createProxy(Class<T> type, T instance) {
+    /*public <T> T createProxy(Class<T> type, T instance) {
         Objects.requireNonNull(type);
         Objects.requireNonNull(instance);
         return type.cast(Proxy.newProxyInstance(type.getClassLoader(), new Class[]{type},
@@ -48,11 +48,11 @@ public final class InterceptorRegistry {
                     }
                     return result;
                 }));
-    }
+    }*/
 
     private final HashMap<Class<?>, List<Interceptor>> interceptorMap = new HashMap<>();
 
-    public void addInterceptor(Class<? extends Annotation> annotationClass, Interceptor interceptor){
+    public void addInterceptor(Class<? extends Annotation> annotationClass, Interceptor interceptor) {
         Objects.requireNonNull(annotationClass);
         Objects.requireNonNull(interceptor);
 
@@ -61,7 +61,7 @@ public final class InterceptorRegistry {
                 .add(interceptor);
     }
 
-    List<Interceptor> findInterceptors(Method method){
+    List<Interceptor> findInterceptors(Method method) {
         return Arrays.stream(method.getAnnotations())
                 .flatMap(annotation -> {
                     var interceptor = interceptorMap.getOrDefault(annotation.annotationType(), List.of());
@@ -70,14 +70,34 @@ public final class InterceptorRegistry {
                 .toList();
     }
 
-    static Invocation getInvocation(List<Interceptor> interceptors){
+    static Invocation getInvocation(List<Interceptor> interceptors) {
         Invocation invocation = Utils::invokeMethod;
-        for(var interceptor : interceptors.reversed()){
+        for (var interceptor : interceptors.reversed()) {
             var oldInvocation = invocation;
             invocation = (instance, method, args) -> {
                 return interceptor.intercept(instance, method, args, oldInvocation);
             };
         }
         return invocation;
+    }
+
+    public <T> T createProxy(Class<T> type, T instance) {
+        Objects.requireNonNull(type);
+        Objects.requireNonNull(instance);
+
+        return type.cast(Proxy.newProxyInstance(type.getClassLoader(), new Class[]{type},
+                ((proxy, method, args) -> {
+                    var interceptors = findInterceptors(method);
+                    var invocation = getInvocation(interceptors);
+                    return invocation.proceed(instance, method, args);
+                })));
+    }
+
+    public void addAroundAdvice(Class<? extends Annotation> annotationClass, AroundAdvice advice){
+        Objects.requireNonNull(annotationClass);
+        Objects.requireNonNull(advice);
+        addInterceptor(annotationClass, ((instance, method, args, invocation) -> {
+            /* TODO */
+        }));
     }
 }
