@@ -124,7 +124,7 @@ public class InterceptorRegistryTest {
     }
   } // end Q1
 
-/*
+
   @Nested
   public class Q2 {
     @Retention(RUNTIME)
@@ -207,7 +207,7 @@ public class InterceptorRegistryTest {
     }
   }  // end of Q2
 
-
+/*
   @Nested
   public class Q3 {
     @Retention(RUNTIME)
