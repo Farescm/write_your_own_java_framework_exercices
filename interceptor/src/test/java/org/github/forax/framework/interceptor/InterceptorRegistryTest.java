@@ -207,7 +207,7 @@ public class InterceptorRegistryTest {
     }
   }  // end of Q2
 
-/*
+
   @Nested
   public class Q3 {
     @Retention(RUNTIME)
@@ -336,7 +336,7 @@ public class InterceptorRegistryTest {
       assertEquals(42, invocation.proceed(empty, identity, new Object[] { 42 }));
     }
   }  // end of Q4
-
+/*
 
   @Nested
   public class Q5 {

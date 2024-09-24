@@ -49,4 +49,35 @@ public final class InterceptorRegistry {
                     return result;
                 }));
     }
+
+    private final HashMap<Class<?>, List<Interceptor>> interceptorMap = new HashMap<>();
+
+    public void addInterceptor(Class<? extends Annotation> annotationClass, Interceptor interceptor){
+        Objects.requireNonNull(annotationClass);
+        Objects.requireNonNull(interceptor);
+
+        interceptorMap
+                .computeIfAbsent(annotationClass, _ -> new ArrayList<>())
+                .add(interceptor);
+    }
+
+    List<Interceptor> findInterceptors(Method method){
+        return Arrays.stream(method.getAnnotations())
+                .flatMap(annotation -> {
+                    var interceptor = interceptorMap.getOrDefault(annotation.annotationType(), List.of());
+                    return interceptor.stream();
+                })
+                .toList();
+    }
+
+    static Invocation getInvocation(List<Interceptor> interceptors){
+        Invocation invocation = Utils::invokeMethod;
+        for(var interceptor : interceptors.reversed()){
+            var oldInvocation = invocation;
+            invocation = (instance, method, args) -> {
+                return interceptor.intercept(instance, method, args, oldInvocation);
+            };
+        }
+        return invocation;
+    }
 }
