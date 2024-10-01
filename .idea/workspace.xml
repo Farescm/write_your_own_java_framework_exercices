@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74bd28e4-ede9-4bbb-a92f-dae249a45c06" name="Changes" comment="Q3 + Q4">
+    <list default="true" id="74bd28e4-ede9-4bbb-a92f-dae249a45c06" name="Changes" comment="Q5 DEBUT">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/interceptor/src/main/java/org/github/forax/framework/interceptor/InterceptorRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/interceptor/src/main/java/org/github/forax/framework/interceptor/InterceptorRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orm/src/main/java/com/github/forax/framework/orm/ORM.java" beforeDir="false" afterPath="$PROJECT_DIR$/orm/src/main/java/com/github/forax/framework/orm/ORM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orm/src/test/java/com/github/forax/framework/orm/ORMTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/orm/src/test/java/com/github/forax/framework/orm/ORMTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +49,10 @@
     "JUnit.InterceptorRegistryTest.executor": "Run",
     "JUnit.JSONWriterTest$Q2.toJSONEmptyClass.executor": "Run",
     "JUnit.JSONWriterTest.executor": "Run",
+    "JUnit.ORMTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "full.screen.before.presentation.mode": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
@@ -85,22 +91,7 @@
       <command value="mvn package" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.InterceptorRegistryTest">
-    <configuration name="InjectorRegistryTest$Q2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="injector" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.github.forax.framework.injector.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.github.forax.framework.injector.InjectorRegistryTest" />
-      <option name="MAIN_CLASS_NAME" value="com.github.forax.framework.injector.InjectorRegistryTest$Q2" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.ORMTest">
     <configuration name="InjectorRegistryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="injector" />
       <extension name="coverage">
@@ -162,13 +153,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ORMTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="orm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.forax.framework.orm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.forax.framework.orm" />
+      <option name="MAIN_CLASS_NAME" value="com.github.forax.framework.orm.ORMTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ORMTest" />
         <item itemvalue="JUnit.InterceptorRegistryTest" />
         <item itemvalue="JUnit.InjectorRegistryTest" />
         <item itemvalue="JUnit.JSONWriterTest" />
         <item itemvalue="JUnit.JSONWriterTest$Q2.toJSONEmptyClass" />
-        <item itemvalue="JUnit.InjectorRegistryTest$Q2" />
       </list>
     </recent_temporary>
   </component>
@@ -181,6 +187,7 @@
       <option name="presentableId" value="Default" />
       <updated>1725953241892</updated>
       <workItem from="1727163759872" duration="21000" />
+      <workItem from="1727767494531" duration="16000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -238,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727170344693</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Q5 DEBUT">
+      <option name="closed" value="true" />
+      <created>1727173180231</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1727173180231</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,7 +272,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="use throw switch in the tests" />
     <MESSAGE value="remove weird import that make the CI fails" />
     <MESSAGE value="update injector and rewrite annotation scanner" />
     <MESSAGE value="remove one star for the classpath scanning" />
@@ -282,6 +296,7 @@
     <MESSAGE value="Q1 + un peu Q2 Avant la liste" />
     <MESSAGE value="Q2 finito + reversed" />
     <MESSAGE value="Q3 + Q4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Q3 + Q4" />
+    <MESSAGE value="Q5 DEBUT" />
+    <option name="LAST_COMMIT_MESSAGE" value="Q5 DEBUT" />
   </component>
 </project>

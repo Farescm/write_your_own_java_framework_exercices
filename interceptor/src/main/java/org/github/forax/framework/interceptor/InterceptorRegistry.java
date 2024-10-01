@@ -96,8 +96,8 @@ public final class InterceptorRegistry {
     public void addAroundAdvice(Class<? extends Annotation> annotationClass, AroundAdvice advice){
         Objects.requireNonNull(annotationClass);
         Objects.requireNonNull(advice);
-        addInterceptor(annotationClass, ((instance, method, args, invocation) -> {
-            /* TODO */
-        }));
+//        addInterceptor(annotationClass, ((instance, method, args, invocation) -> {
+//            /* TODO */
+//        }));
     }
 }
