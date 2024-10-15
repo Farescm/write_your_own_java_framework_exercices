@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74bd28e4-ede9-4bbb-a92f-dae249a45c06" name="Changes" comment="Q5 DEBUT">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="74bd28e4-ede9-4bbb-a92f-dae249a45c06" name="Changes" comment="orm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interceptor/src/main/java/org/github/forax/framework/interceptor/InterceptorRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/interceptor/src/main/java/org/github/forax/framework/interceptor/InterceptorRegistry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orm/src/main/java/com/github/forax/framework/orm/ORM.java" beforeDir="false" afterPath="$PROJECT_DIR$/orm/src/main/java/com/github/forax/framework/orm/ORM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orm/src/test/java/com/github/forax/framework/orm/ORMTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/orm/src/test/java/com/github/forax/framework/orm/ORMTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,32 +39,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.InjectorRegistryTest.executor": "Run",
-    "JUnit.InterceptorRegistryTest.executor": "Run",
-    "JUnit.JSONWriterTest$Q2.toJSONEmptyClass.executor": "Run",
-    "JUnit.JSONWriterTest.executor": "Run",
-    "JUnit.ORMTest.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "full.screen.before.presentation.mode": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/6ifo1/fares.sid-athmane/ESIPE/write_your_own_java_framework_exercices",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.InjectorRegistryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InterceptorRegistryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JSONWriterTest$Q2.toJSONEmptyClass.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JSONWriterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ORMTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/6ifo1/fares.sid-athmane/ESIPE/ClassGen&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/interceptor" />
@@ -188,6 +184,7 @@
       <updated>1725953241892</updated>
       <workItem from="1727163759872" duration="21000" />
       <workItem from="1727767494531" duration="16000" />
+      <workItem from="1728025695534" duration="33000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -253,7 +250,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727173180231</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="orm">
+      <option name="closed" value="true" />
+      <created>1727777015313</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1727777015313</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +277,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="remove weird import that make the CI fails" />
     <MESSAGE value="update injector and rewrite annotation scanner" />
     <MESSAGE value="remove one star for the classpath scanning" />
     <MESSAGE value="SQLi =&gt; JDBi" />
@@ -297,6 +301,7 @@
     <MESSAGE value="Q2 finito + reversed" />
     <MESSAGE value="Q3 + Q4" />
     <MESSAGE value="Q5 DEBUT" />
-    <option name="LAST_COMMIT_MESSAGE" value="Q5 DEBUT" />
+    <MESSAGE value="orm" />
+    <option name="LAST_COMMIT_MESSAGE" value="orm" />
   </component>
 </project>

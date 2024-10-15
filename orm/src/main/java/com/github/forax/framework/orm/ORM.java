@@ -11,13 +11,8 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Proxy;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Objects;
-import java.util.StringJoiner;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public final class ORM {
@@ -103,30 +98,101 @@ public final class ORM {
         continue;
       }
       var column = findColumnName(property);
-      if(isPrimaryKey(property)){
+      if (isPrimaryKey(property)) {
         primaryColumn = column;
       }
       var propertyType = property.getPropertyType();
       var type = TYPE_MAPPING.getOrDefault(propertyType, DEFAULT_TYPE);
 
-      var nullConstraint = propertyType.isPrimitive() ?  " NOT NULL" : "";
+      var nullConstraint = propertyType.isPrimitive() ? " NOT NULL" : "";
 
       builder.append(separator).append(column).append(' ').append(type).append(nullConstraint);
 
       separator = ",\n";
 
-      if(primaryColumn != null){
+      if (primaryColumn != null) {
         builder.append(separator).append("PRIMARY KEY (").append(primaryColumn).append(")\n");
       }
       builder.append(");");
 
       var connection = currentConnection();
-      try(Statement statement = connection.createStatement()){
+      try (Statement statement = connection.createStatement()) {
         System.out.println(builder.toString());
         var query = builder.toString();
         statement.executeUpdate(query);
       }
       connection.commit();
+    }
+  }
+
+  static String createSaveQuery(String tableName, BeanInfo beanInfo) {
+    var properties = beanInfo.getPropertyDescriptors();
+    return "INSERT INTO " + tableName + " " +
+            Arrays.stream(beanInfo.getPropertyDescriptors())
+                    .filter(property -> !property.getName().equals("class"))
+                    .map(ORM::findColumnName)
+                    .collect(Collectors.joining(", ", "(", ")"))
+            + " VALUES (" + String.join(", " + String.join(", ", Collections.nCopies(properties.length - 1, "?"))
+            + ");");
+  }
+
+  public static Object save(Connection connection, String tableName, BeanInfo beanInfo, Object bean, PropertyDescriptor idProperty) throws SQLException{
+    var sqlQuery = createSaveQuery(tableName, beanInfo);
+    try(var statement = connection.prepareStatement(sqlQuery)){
+      var index = 1;
+      for(var property : beanInfo.getPropertyDescriptors()){
+        if(property.getName().equals("class")){
+          continue;
+        }
+        var getter = property.getReadMethod();
+        var value = Utils.invokeMethod(bean, getter);
+        statement.setObject(index++, value);
+      }
+      statement.executeUpdate();
+      if(idProperty != null){
+        try(var resultSet = statement.getGeneratedKeys()){
+          if(resultSet.next()){
+
+          }
+        }
+      }
+
+    }
+  }
+
+  public static <R extends Repository<?, ?>> R createRepository(Class<R> repositoryType) {
+    var beanType = findBeanTypeFromRepository(repositoryType);
+    var tableName = findTableName(beanType);
+    var beanInfo = Utils.beanInfo(beanType);
+    var constructor = Utils.defaultConstructor(beanType);
+//    var idProperty =
+
+    return repositoryType.cast(Proxy.newProxyInstance(repositoryType.getClassLoader(),
+            new Class<?>[]{repositoryType},
+            ((proxy, method, args) -> {
+              var connection = currentConnection();
+              try {
+                return switch (method.getName()){
+                  case "findAll" -> findAll(connection, "SELECT * FROM " + tableName, beanInfo, constructor);
+                  case "save" -> save(connection, tableName, beanInfo, args[0], idProperty);
+                  case "findById" -> findAll(connection, "SELECT * FROM " + tableName + " WHERE " + , beanInfo, constructor);
+                }
+              }
+            })
+    ))
+  }
+
+  private static List<?> findAll(Connection connection, String sqlQuery ,Class<?> beanInfo, Class<?> beanType, Constructor<?> constructor) throws SQLException {
+    var tableName = findTableName(beanType);
+    var sqlQuery = "SELECT * FROM " + tableName;
+    try (PreparedStatement statement = connection.prepareStatement(sqlQuery)) {
+      try (ResultSet resultSet = statement.executeQuery()) {
+        while (resultSet.next()) {
+          var bean = Utils.newInstance(constructor);
+          var index = 1;
+          for (var property : beanInfo.getP)
+        }
+      }
     }
   }
 
